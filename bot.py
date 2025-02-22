@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # API & Bot Token (আপনার টেলিগ্রাম বট টোকেন বসান)
-BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+BOT_TOKEN = "7445133123:AAGG1atZVQRMnUT97C0aHvafk0FunviFHBI"
 CHATGPT_API_URL = "https://chatgpt-by-paravi.tiiny.io?id=00&q="  # আপনার API
 
 # Start Command
