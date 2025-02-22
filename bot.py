@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # API & Bot Token (আপনার টেলিগ্রাম বট টোকেন বসান)
-BOT_TOKEN = "7445133123:AAGG1atZVQRMnUT97C0aHvafk0FunviFHBI"
+BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
 CHATGPT_API_URL = "https://chatgpt-by-paravi.tiiny.io?id=00&q="  # আপনার API
 
 # Start Command
@@ -17,9 +17,10 @@ def chatgpt_reply(update: Update, context: CallbackContext):
     api_url = CHATGPT_API_URL + requests.utils.quote(user_message)  # Query Encode
 
     try:
-        response = requests.get(api_url)  # API Call
+        response = requests.get(api_url)
         if response.status_code == 200:
-            reply_text = response.text.strip()
+            data = response.json()  # JSON response পার্স করা
+            reply_text = data.get("message", "আমি বুঝতে পারিনি 🧐")  # শুধু 'message' নিবে
         else:
             reply_text = "আমি বুঝতে পারিনি 🧐"
     except Exception as e:
